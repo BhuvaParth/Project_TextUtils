@@ -28,7 +28,6 @@ export default function TextForm(props) {
     }
 
     const handleExSpace = () => {
-        console.log("clicked" );
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
         props.showAlert("Remove All Extra Space", "success");
@@ -55,7 +54,7 @@ export default function TextForm(props) {
             </div>
             <div className="container mt-3">
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                <p>{text.split(/\s+/).filter((text)=>{return text.length!==0}).length} words and {text.length} characters</p>
                 <h4>Preview</h4>
                 <p>{text}</p>
             </div>
